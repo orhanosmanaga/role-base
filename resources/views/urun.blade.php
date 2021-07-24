@@ -48,7 +48,7 @@
                 <th class="col">uresim</th>
                 <th class="col">ufiyat</th>
                 <th class="col">uadet</th>
-                @role('Admin')<th class="col">satici</th>@endrole
+                @role('Admin|Yonetici')<th class="col">satici</th>@endrole
                 <th class="col">işlemler</th>
             </tr>
         </thead>
@@ -61,9 +61,9 @@
                 <th class="col">{{ $urunler->uresim }}</th>
                 <th class="col">{{ $urunler->ufiyat }}</th>
                 <th class="col">{{ $urunler->uadet }}</th>
-                @role('Admin')<th class="col">{{ $urunler->satici }}</th>@endrole
+                @role('Admin|Yonetici')<th class="col">{{ $urunler->satici }}</th>@endrole
                 <th class="col">
-                    <a href="{{ url('/urunsil',$urunler->id) }}" class="btn btn-sm btn-danger">sil</a> 
+                @role('Admin|Yonetici') <a href="{{ url('/urunsil',$urunler->id) }}" class="btn btn-sm btn-danger">sil</a> @endrole
                     <a href="{{ url('/urunduzenle',$urunler->id) }}" class="btn btn-sm btn-info">düzenle</a>
                 </th>
             </tr>
@@ -73,6 +73,7 @@
     </table>
 
     </div>
+    @role('Admin|Satici')
     <div class="col-md-4">
         <form method="POST" action="{{ url('/urunolustur') }}">
         @csrf
@@ -101,6 +102,7 @@
         </form>
 
     </div>
+    @endrole
 <div></div>
 
 </div>

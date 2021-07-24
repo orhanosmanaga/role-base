@@ -20,8 +20,9 @@ class UrunController extends Controller
     
     public function urunsayfa()
     {   //$urun = UrunModel::find(1);
+        $kisirol=auth()->user()->hasRole('Admin|Yonetici');
         
-        if(auth()->user()->role('Admin'))
+        if($kisirol!=true)
 
         {$kisi=auth()->user()->name;
             $urun = UrunModel::where('satici','=',$kisi)->get();}
@@ -73,14 +74,12 @@ class UrunController extends Controller
     }
     public function urunduzenleget(int $id)
     {   
-        if(auth()->user()->role('Admin'))
+        
 
-        {$kisi=auth()->user()->name;
-            $urun = UrunModel::where('satici','=',$kisi)->get();}
-        else{
+        
             $urun = UrunModel::all();
             
-        }
+       
 
         $urungetir =UrunModel::where('id',$id)->first();
         return view('urunduzenle', array('urun'=>$urun , 'urungetir'=> $urungetir));
