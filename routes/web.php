@@ -26,6 +26,8 @@ Route::get('/rololustur', [App\Http\Controllers\HomeController::class, 'rololust
 Route::get('/urun', [App\Http\Controllers\UrunController::class, 'urunsayfa']);
 Route::POST('/urunolustur', [App\Http\Controllers\UrunController::class, 'urunolustur']);
 Route::get('/urunsil/{id}', [App\Http\Controllers\UrunController::class, 'urunsil']);
+Route::get('/urunduzenle/{id}', [App\Http\Controllers\UrunController::class, 'urunduzenleget']);
+Route::POST('/urunduzenle', [App\Http\Controllers\UrunController::class, 'urunduzenlepost']);
 
 
 

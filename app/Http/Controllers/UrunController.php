@@ -71,4 +71,45 @@ class UrunController extends Controller
         UrunModel::where('id',$id)->delete();
         return back();
     }
+    public function urunduzenleget(int $id)
+    {   
+        if(auth()->user()->role('Admin'))
+
+        {$kisi=auth()->user()->name;
+            $urun = UrunModel::where('satici','=',$kisi)->get();}
+        else{
+            $urun = UrunModel::all();
+            
+        }
+
+        $urungetir =UrunModel::where('id',$id)->first();
+        return view('urunduzenle', array('urun'=>$urun , 'urungetir'=> $urungetir));
+        
+    }
+
+    public function urunduzenlepost(Request $request)
+    { 
+        $veri=$request->validate(
+            [
+                'ukod'=>'required|integer',
+                'uad'=>'required|string',
+                'uresim'=>'required|string',
+                'ufiyat'=>'required|integer',
+                'uadet'=>'required|integer',
+                'id'=>'required|integer',
+                
+    
+    
+            ] );
+            $urun=UrunModel::find($request->id);
+            $urun->ukod=$request->ukod;
+            $urun->uad=$request->uad;
+            $urun->uresim=$request->uresim;
+            $urun->ufiyat=$request->ufiyat;
+            $urun->uadet=$request->uadet;
+            
+            $urun->save();
+            return redirect('/urun');
+         
+    }
 }

@@ -62,7 +62,10 @@
                 <th class="col">{{ $urunler->ufiyat }}</th>
                 <th class="col">{{ $urunler->uadet }}</th>
                 @role('Admin')<th class="col">{{ $urunler->satici }}</th>@endrole
-                <th class="col"><a href="{{ url('/urunsil',$urunler->id) }}" class="btn btn-sm btn-danger">sil</a>   <a href="">düzenle</a> </th>
+                <th class="col">
+                    <a href="{{ url('/urunsil',$urunler->id) }}" class="btn btn-sm btn-danger">sil</a> 
+                    <a href="{{ url('/urunduzenle',$urunler->id) }}" class="btn btn-sm btn-info">düzenle</a>
+                </th>
             </tr>
             @endforeach
         </tbody>
