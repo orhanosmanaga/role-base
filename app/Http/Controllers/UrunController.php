@@ -66,4 +66,9 @@ class UrunController extends Controller
        $urun->save();
        return back();
     }
+    public function urunsil(int $id)
+    {   
+        UrunModel::where('id',$id)->delete();
+        return back();
+    }
 }

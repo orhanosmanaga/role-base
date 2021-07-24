@@ -25,6 +25,7 @@ Route::get('/rololustur', [App\Http\Controllers\HomeController::class, 'rololust
 
 Route::get('/urun', [App\Http\Controllers\UrunController::class, 'urunsayfa']);
 Route::POST('/urunolustur', [App\Http\Controllers\UrunController::class, 'urunolustur']);
+Route::get('/urunsil/{id}', [App\Http\Controllers\UrunController::class, 'urunsil']);
 
 
 
