@@ -34,8 +34,40 @@
   <body>
     <!-- MDB -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+    
+<div class="container">
 
-<div class="container">urun anasayfa</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="col">id</th>
+                <th class="col">ukod</th>
+                <th class="col">uad</th>
+                <th class="col">uresim</th>
+                <th class="col">ufiyat</th>
+                <th class="col">uadet</th>
+                <th class="col">satici</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($urun as $key => $urunler)
+            <tr>
+                <th class="col">{{$key+1}}</th>
+                <th class="col">{{ $urunler->ukod }}</th>
+                <th class="col">{{ $urunler->uad }}</th>
+                <th class="col">{{ $urunler->uresim }}</th>
+                <th class="col">{{ $urunler->ufiyat }}</th>
+                <th class="col">{{ $urunler->uadet }}</th>
+                <th class="col">{{ $urunler->satici }}</th>
+            </tr>
+            @endforeach
+        </tbody>
+
+    </table>
+
+
+
+</div>
 
 
     
