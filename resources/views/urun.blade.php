@@ -37,16 +37,18 @@
     
 <div class="container">
 
-    <table class="table">
+<div class="row">
+    <div class="col-md-7">
+    <table class="table table-sm">
         <thead>
-            <tr>
+            <tr class="table-dark">
                 <th class="col">id</th>
                 <th class="col">ukod</th>
                 <th class="col">uad</th>
                 <th class="col">uresim</th>
                 <th class="col">ufiyat</th>
                 <th class="col">uadet</th>
-                <th class="col">satici</th>
+                @role('Admin')<th class="col">satici</th>@endrole
             </tr>
         </thead>
         <tbody>
@@ -58,12 +60,48 @@
                 <th class="col">{{ $urunler->uresim }}</th>
                 <th class="col">{{ $urunler->ufiyat }}</th>
                 <th class="col">{{ $urunler->uadet }}</th>
-                <th class="col">{{ $urunler->satici }}</th>
+                @role('Admin')<th class="col">{{ $urunler->satici }}</th>@endrole
             </tr>
             @endforeach
         </tbody>
 
     </table>
+
+    </div>
+    <div class="col-md-5">
+        <form method="POST" action="{{ url('/urunolustur') }}">
+        @csrf
+        <br>
+            <div class="form-outline mb-5">
+                <input type="text" id="ukod" name="ukod" class="form-control" />
+                <label class="form-label" for="ukod">Ürün kod</label>
+            </div>
+            <div class="form-outline mb-5">
+                <input type="text" id="uad" name="uad" class="form-control" />
+                <label class="form-label" for="uad">Ürün ad</label>
+            </div>
+            <div class="form-outline mb-5">
+                <input type="text" id="uresim" name="uresim" class="form-control" />
+                <label class="form-label" for="uresim">Ürün resim</label>
+            </div>
+            <div class="form-outline mb-5">
+                <input type="text" id="ufiyat" name="ufiyat" class="form-control" />
+                <label class="form-label" for="ufiyat">Ürün fiyat</label>
+            </div>
+            <div class="form-outline mb-5">
+                <input type="text" id="uadet" name="uadet" class="form-control" />
+                <label class="form-label" for="uadet">Ürün adet</label>
+            </div>
+            <input type="submit" name="kaydet" value="kaydet" class="btn btn-info btn-block">
+        </form>
+
+    </div>
+<div></div>
+
+</div>
+
+
+   
 
 
 

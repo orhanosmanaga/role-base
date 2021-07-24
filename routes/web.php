@@ -19,9 +19,16 @@ Route::get('/', function () {
 */
 
 Auth::routes();
-Route::get('/', [App\Http\Controllers\UrunController::class, 'urunsayfa']);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/rololustur', [App\Http\Controllers\HomeController::class, 'rololustur']);
+
+
+Route::get('/urun', [App\Http\Controllers\UrunController::class, 'urunsayfa']);
+Route::POST('/urunolustur', [App\Http\Controllers\UrunController::class, 'urunolustur']);
+
+
+
+
 
 Route::group(['middleware' => ['role:Admin']], function () {
     Route::get('/adminyap', [App\Http\Controllers\HomeController::class, 'adminyap']);
