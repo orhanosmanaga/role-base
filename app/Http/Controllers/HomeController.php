@@ -29,6 +29,16 @@ class HomeController extends Controller
 
         //auth()->user()->givePermissionTo('ekleme');
         //auth()->user()->assignRole('Admin');
+
+        $kisirol=auth()->user()->hasRole('Admin|Yonetici|Satici');
+        
+        if($kisirol!=true)
+        {
+        auth()->user()->assignRole('Satici');
+        auth()->user()->givePermissionTo('ekleme','duzenleme');
+        //return "satici oldun";
+        }
+
         return view('home');
     }
     public function rololustur()

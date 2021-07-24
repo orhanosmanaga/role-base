@@ -36,19 +36,69 @@
     <script type="text/javascript" src="js/mdb.min.js"></script>
     
 <div class="container">
+    
+
+
+
+
+
+
+<a class="nav-link" float="left" href="{{ url('/') }}">{{ __('Ana Sayfa') }}</a>
 
 <div class="row">
+@role('Admin|Satici')
+    <div class="col-md-12">
+        <form method="POST" action="{{ url('/urunolustur') }}">
+        @csrf
+        <br>
+    <div class="row mb-5">
+        <div class="col">
+            <div class="form-outline ">
+                <input type="text" id="ukod" name="ukod" class="form-control" />
+                <label class="form-label" for="ukod">Ürün kod</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" id="uad" name="uad" class="form-control" />
+                <label class="form-label" for="uad">Ürün ad</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline mb-4">
+                <input type="text" id="uresim" name="uresim" class="form-control" />
+                <label class="form-label" for="uresim">Ürün resim</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline mb-4">
+                <input type="text" id="ufiyat" name="ufiyat" class="form-control" />
+                <label class="form-label" for="ufiyat">Ürün fiyat</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline mb-4">
+                <input type="text" id="uadet" name="uadet" class="form-control" />
+                <label class="form-label" for="uadet">Ürün adet</label>
+            </div>
+        </div>
+        
+            <input type="submit" name="kaydet" value="kaydet" class="btn btn-info btn-block">
+        </form>
+
+    </div>
+    @endrole
     <div class="col-md-8">
     <table class="table table-sm">
         <thead>
             <tr class="table-dark">
                 <th class="col">id</th>
-                <th class="col">ukod</th>
-                <th class="col">uad</th>
-                <th class="col">uresim</th>
-                <th class="col">ufiyat</th>
-                <th class="col">uadet</th>
-                @role('Admin|Yonetici')<th class="col">satici</th>@endrole
+                <th class="col">ürün kod</th>
+                <th class="col">ürün ad</th>
+                <th class="col">ürün resim</th>
+                <th class="col">ürün fiyat</th>
+                <th class="col">ürün adet</th>
+                @role('Admin|Yonetici')<th class="col">satıcı</th>@endrole
                 <th class="col">işlemler</th>
             </tr>
         </thead>
@@ -73,36 +123,7 @@
     </table>
 
     </div>
-    @role('Admin|Satici')
-    <div class="col-md-4">
-        <form method="POST" action="{{ url('/urunolustur') }}">
-        @csrf
-        <br>
-            <div class="form-outline mb-4">
-                <input type="text" id="ukod" name="ukod" class="form-control" />
-                <label class="form-label" for="ukod">Ürün kod</label>
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" id="uad" name="uad" class="form-control" />
-                <label class="form-label" for="uad">Ürün ad</label>
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" id="uresim" name="uresim" class="form-control" />
-                <label class="form-label" for="uresim">Ürün resim</label>
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" id="ufiyat" name="ufiyat" class="form-control" />
-                <label class="form-label" for="ufiyat">Ürün fiyat</label>
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" id="uadet" name="uadet" class="form-control" />
-                <label class="form-label" for="uadet">Ürün adet</label>
-            </div>
-            <input type="submit" name="kaydet" value="kaydet" class="btn btn-info btn-block">
-        </form>
-
-    </div>
-    @endrole
+   
 <div></div>
 
 </div>

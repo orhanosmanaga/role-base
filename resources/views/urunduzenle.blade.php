@@ -44,7 +44,7 @@
         @csrf
         <br>
             <div class="form-outline mb-4">
-                <input type="text" id="ukod" name="ukod"  value="{{ $urungetir->ukod}}" class="form-control" />
+                <input type="text" id="ukod" name="ukod"  value="{{ $urungetir->ukod}}" class="form-control " />
                 <label class="form-label" for="ukod"></label>
             </div>
             <div class="form-outline mb-4">
