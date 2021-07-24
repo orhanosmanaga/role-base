@@ -43,32 +43,40 @@
         <form method="POST" action="{{ url('/urunduzenle') }}">
         @csrf
         <br>
-            <div class="form-outline mb-4">
+        
+            <div class="form-outline">
+            <b>ürün kod</b>
                 <input type="text" id="ukod" name="ukod"  value="{{ $urungetir->ukod}}" class="form-control " />
                 <label class="form-label" for="ukod"></label>
             </div>
-            <div class="form-outline mb-4">
+            <div class="form-outline">
+            <b>ürün ad</b>
                 <input type="text" id="uad" name="uad"  value="{{ $urungetir->uad}}" class="form-control" />
                 <label class="form-label" for="uad"></label>
             </div>
-            <div class="form-outline mb-4">
+            <div class="form-outline">
+            <b>ürün resim</b>
                 <input type="text" id="uresim" name="uresim"  value="{{ $urungetir->uresim}}" class="form-control" />
                 <label class="form-label" for="uresim"></label>
             </div>
-            <div class="form-outline mb-4">
+            <div class="form-outline">
+            <b>ürün fiyat</b>
                 <input type="text" id="ufiyat" name="ufiyat"  value="{{ $urungetir->ufiyat}}" class="form-control" />
                 <label class="form-label" for="ufiyat"></label>
             </div>
-            <div class="form-outline mb-4">
+            <div class="form-outline">
+            <b>ürün adet</b>
                 <input type="text" id="uadet" name="uadet"  value="{{ $urungetir->uadet}}" class="form-control" />
                 <label class="form-label" for="uadet"></label>
             </div>
             <input type="hidden" name="id" value="{{$urungetir->id}}" class="btn btn-info btn-block">
             <input type="submit" name="guncelle" value="güncelle" class="btn btn-info btn-block">
         </form>
+            </div>
+        <div>
 
-    </div>
-<div></div>
+
+      </div>
 
 </div>
 
