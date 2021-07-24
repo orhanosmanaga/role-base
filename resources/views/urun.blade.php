@@ -31,11 +31,11 @@
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
   </head>
-  <body class="d-flex h-100 text-center text-white bg-dark">
+  <body>
     <!-- MDB -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
 
-</div>
+<div class="container">urun anasayfa</div>
 
 
     
